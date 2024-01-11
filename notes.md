@@ -1,0 +1,1 @@
+I learned that github can be pretty useful in tracking changes of code. I wish I would've learned how to use it much sooner. I know I am already signed in on my Mac, but I wan't to sign out and then sign in again and work on becoming more comfortable with Git.
