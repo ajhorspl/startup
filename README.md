@@ -11,6 +11,7 @@ First off, give Ryan Reynolds a hug he definitely needs it. And then subscribe t
 
 ## Design
 
+The design for the website and its pages can be found at the following [link](https://ninjamock.com/s/29L9TLx)
 
 
 
