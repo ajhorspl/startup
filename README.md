@@ -20,7 +20,22 @@ The design for the website and its pages can be found at the following [link](ht
 - Export a CSV (download it) with necessary information
 
 ## Technology
-- Authentication
-    - Allow a user to login
-- Database Data
-- WebSocket Data
+
+- HTML
+    - Use HTML to structure the application. There will be six pages. A Login, Dashboard, Content View, Payee View, Add Content, and Add Payee page.
+
+- CSS 
+    - Make the application look good
+
+- JavaScript
+    - Provides the login, updating the database, pulling from the database calls
+
+- DB
+    - Stores the users, content information, and payee information. Can't use the application without signing in.
+
+- WebSocket
+    - Updates the statistics displayed on the dashboard based on the information uploaded to the database.
+
+##### Side Note
+
+Exame side note
