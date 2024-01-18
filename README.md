@@ -13,5 +13,13 @@ First off, give Ryan Reynolds a hug he definitely needs it. And then subscribe t
 
 The design for the website and its pages can be found at the following [link](https://ninjamock.com/s/29L9TLx)
 
+## Key Features
+- Secure login
+- Ability to add and store information about content and its creators to a database through the website
+- Interact with the information that the user has uploaded
+- Export a CSV (download it) with necessary information
 
-
+## Technology
+- Authentication
+- Database Data
+- WebSocket Data
