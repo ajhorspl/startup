@@ -17,8 +17,8 @@ The design for the website and its pages can be found at the following [link](ht
 ![](dashboard.png)
 ![](content.png)
 ![](payee.png)
-![](add content.png)
-![](add payee.png)
+![](add_content.png)
+![](add_payee.png)
 
 ## Key Features
 - Secure login
