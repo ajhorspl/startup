@@ -38,4 +38,4 @@ The design for the website and its pages can be found at the following [link](ht
 
 ##### Side Note
 
-Exame side note
+A small film festival and streaming service reached out to me to make an application like this for them. I attempted to use my CS240 skills to put together a Java application and it did not turn out the greatest. My intentions for this class are to learn and make something that is presentable and functioning. Any feedback would be greatly appreciated :)
