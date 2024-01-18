@@ -13,6 +13,13 @@ First off, give Ryan Reynolds a hug he definitely needs it. Then subscribe to th
 
 The design for the website and its pages can be found at the following [link](https://ninjamock.com/s/29L9TLx).
 
+![Screenshots of mock website](login.png)
+![](dashboard.png)
+![](content.png)
+![](payee.png)
+![](add content.png)
+![](add payee.png)
+
 ## Key Features
 - Secure login
 - Ability to add and store information about content and its creators to a database through the website
