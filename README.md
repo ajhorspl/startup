@@ -7,6 +7,10 @@ We know! You run your entire business from a set of ever growing Google Spreadsh
 
 Well how do you fix it...?
 
-First off, give Ryan Reynolds a hug he definitely needs it. And then subscribe to [insert cool name for web application here]! This is a database that allows you to track which films are at your festival and posted on your streaming service
+First off, give Ryan Reynolds a hug he definitely needs it. And then subscribe to [insert cool name for web application here]! This web application allows you to track and manage your films, their associated information, and filmmakers through an interactive database. Easily add, remove, export and condense your spreadsheets into a user friendly application!
+
+## Design
+
+
 
 
