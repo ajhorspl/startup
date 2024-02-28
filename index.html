@@ -6,6 +6,7 @@
     <title>Film Festival Almanac</title>
     <link rel="icon" href="favicon.ico" />
     <link rel="stylesheet" href="main.css" />
+    <script src="login.js"></script>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
       rel="stylesheet"
@@ -29,17 +30,15 @@
       <div>
         <h1>Welcome</h1>
         <p>Login</p>
-        <form method="get" action="home.html">
         <div>
           <label for="name">Username:</label>
-          <input type="text" id="name" placeholder="username" />
+          <input type="text" id="username" placeholder="username" />
         </div>
         <div>
           <label for="name">Password:</label>
-          <input type="password" id="name" placeholder="password" />
-          <button type="submit">Login</button>
+          <input type="password" id="password" placeholder="password" />
+          <button type="submit" onclick="login()">Login</button>
         </div>
-      </form>
     </div>
     </main>
 
