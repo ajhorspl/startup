@@ -1,4 +1,11 @@
 
+const playerNameEl = document.querySelector('.username');
+playerNameEl.textContent = this.getPlayerName();
+
+function getPlayerName() {
+    return localStorage.getItem('userName') ?? 'Mystery player';
+  }
+  
 function loadContent() {
     let content = [];
     const contentText = localStorage.getItem('content');
