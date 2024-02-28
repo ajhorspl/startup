@@ -40,7 +40,7 @@ function loadPayee() {
             numFilmsTdEl.textContent = content.numFilms;
 
             const rowEl = document.createElement('tr');
-            
+
             rowEl.appendChild(firstTdEl);
             rowEl.appendChild(lastTdEl);
             rowEl.appendChild(emailTdEl);
@@ -56,8 +56,8 @@ function loadPayee() {
         }
     }
     else {
-        tableBodyEl.innerHTML = '<tr><td colSpan = 9>Enter data into database</td></tr>';
+        tableBodyEl.innerHTML = '<tr><td colSpan = 10>Enter data into database</td></tr>';
     }
 }
 
-loadContent();
+loadPayee();
