@@ -64,4 +64,4 @@ This application currently works for a single user. There are placeholders for f
 - login: Then you login it takes you to the homepage. The username is displayed across the site until you log out.
 - database: Displays the current films and people who are paid for them (payees) are displayed. This is currently done using local storage
 - websocket data: Randomly adds a payee to the database to simulate another user updating the database simultaneously, until websocket is implemented
-- application logic: The user is able to add to the database as they find fit.
+- application logic: The user is able to add to the innteractive database as they find fit.
