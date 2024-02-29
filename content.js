@@ -28,7 +28,7 @@ function loadContent() {
             const keyActorTdEl = document.createElement('td');
             const payeeTdEl = document.createElement('td');
             
-            posterTdEl.textContent = content.poster;
+            posterTdEl.textContent = content.poster.value;
             titleTdEl.textContent = content.title;
             genreTdEl.textContent = content.genre;
             languageTdEl.textContent = content.language;
@@ -39,7 +39,7 @@ function loadContent() {
             payeeTdEl.textContent = content.payee;
 
             const rowEl = document.createElement('tr');
-            rowEl.appendChild(posterTdEl);
+            rowEl.appendChild(posterTdEl.value);
             rowEl.appendChild(titleTdEl);
             rowEl.appendChild(genreTdEl);
             rowEl.appendChild(languageTdEl);
