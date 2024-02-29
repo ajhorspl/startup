@@ -47,7 +47,7 @@ The design for the website and its pages can be found at the following [link](ht
 
 A small film festival and streaming service reached out to me to make an application like this for them. I attempted to use my CS240 skills to put together a Java application and it did not turn out the greatest. My intentions for this class are to learn and make something that is presentable and functioning. Any feedback would be greatly appreciated :)
 
-#Startup CSS
+# Startup CSS
 
 For this assignment I styled the following:
 
@@ -56,3 +56,12 @@ For this assignment I styled the following:
 - I did my best to make my application responsive to the resizing of the window.
 - Tried to make tables have good contrast for readability.
 - Consistent fonts across the webapplication.
+
+# Startup JavaScript
+
+This application currently works for a single user. There are placeholders for future technologies.
+
+- login: Then you login it takes you to the homepage. The username is displayed across the site until you log out.
+- database: Displays the current films and people who are paid for them (payees) are displayed. This is currently done using local storage
+- websocket data: Randomly adds a payee to the database to simulate another user updating the database simultaneously, until websocket is implemented
+- application logic: The user is able to add to the database as they find fit.
