@@ -14,7 +14,7 @@ function loadPayee() {
 
     const tableBodyEl = document.querySelector('#payee');
 
-    if(payee.length) {
+    if(payees.length) {
         for (const [i, payee] of payees.entries()) {
 
             const firstTdEl = document.createElement('td');
@@ -26,7 +26,7 @@ function loadPayee() {
             const stateTdEl = document.createElement('td');
             const zipTdEl = document.createElement('td');
             const countryTdEl = document.createElement('td');
-            const numFilmsTdEl = document.createElement('td');
+            //const numFilmsTdEl = document.createElement('td');
             
             firstTdEl.textContent = payee.first;
             lastTdEl.textContent = payee.last;
@@ -37,7 +37,7 @@ function loadPayee() {
             stateTdEl.textContent = payee.state;
             zipTdEl.textContent = payee.zip;
             countryTdEl.textContent = payee.country;
-            numFilmsTdEl.textContent = payee.numFilms;
+            //numFilmsTdEl.textContent = payee.numFilms;
 
             const rowEl = document.createElement('tr');
 
@@ -50,7 +50,7 @@ function loadPayee() {
             rowEl.appendChild(stateTdEl);
             rowEl.appendChild(zipTdEl);
             rowEl.appendChild(countryTdEl);
-            rowEl.appendChild(numFilmsTdEl);
+            //rowEl.appendChild(numFilmsTdEl);
 
             tableBodyEl.appendChild(rowEl);
         }
