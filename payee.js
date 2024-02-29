@@ -6,16 +6,16 @@ function getPlayerName() {
   }
   
 function loadPayee() {
-    let payee = [];
-    const payeeText = localStorage.getItem('payee');
-    if(payeeText) {
-        content = JSON.parse(payeeText);
+    let payees = [];
+    const payeesText = localStorage.getItem('payee');
+    if(payeesText) {
+        payees = JSON.parse(payeesText);
     }
 
     const tableBodyEl = document.querySelector('#payee');
 
     if(payee.length) {
-        for (const [i, payee] of payee.entries()) {
+        for (const [i, payee] of payees.entries()) {
 
             const firstTdEl = document.createElement('td');
             const lastTdEl = document.createElement('td');
@@ -28,16 +28,16 @@ function loadPayee() {
             const countryTdEl = document.createElement('td');
             const numFilmsTdEl = document.createElement('td');
             
-            firstTdEl.textContent = content.first;
-            lastTdEl.textContent = content.last;
-            emailTdEl.textContent = content.email;
-            phoneTdEl.textContent = content.phone;
-            addressTdEl.textContent = content.address;
-            cityTdEl.textContent = content.city;
-            stateTdEl.textContent = content.state;
-            zipTdEl.textContent = content.zip;
-            countryTdEl.textContent = content.country;
-            numFilmsTdEl.textContent = content.numFilms;
+            firstTdEl.textContent = payee.first;
+            lastTdEl.textContent = payee.last;
+            emailTdEl.textContent = payee.email;
+            phoneTdEl.textContent = payee.phone;
+            addressTdEl.textContent = payee.address;
+            cityTdEl.textContent = payee.city;
+            stateTdEl.textContent = payee.state;
+            zipTdEl.textContent = payee.zip;
+            countryTdEl.textContent = payee.country;
+            numFilmsTdEl.textContent = payee.numFilms;
 
             const rowEl = document.createElement('tr');
 
