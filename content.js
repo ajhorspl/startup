@@ -7,16 +7,18 @@ function getPlayerName() {
   }
   
 function loadContent() {
-    let content = [];
-    const contentText = localStorage.getItem('content');
-    if(contentText) {
-        content = JSON.parse(contentText);
+    let contents = [];
+    const contentsText = localStorage.getItem('content');
+    console.log(contentsText)
+    if(contentsText) {
+        contents = JSON.parse(contentsText);
+        
     }
-
+    console.log(contents);
     const tableBodyEl = document.querySelector('#content');
-
-    if(content.length) {
-        for (const [i, content] of content.entries()) {
+    
+    if(contents.length) {
+        for (const [i, content] of contents.entries()) {
 
             const posterTdEl = document.createElement('td');
             const titleTdEl = document.createElement('td');
@@ -28,18 +30,18 @@ function loadContent() {
             const keyActorTdEl = document.createElement('td');
             const payeeTdEl = document.createElement('td');
             
-            posterTdEl.textContent = content.poster.value;
+            posterTdEl.textContent = content.poster;
             titleTdEl.textContent = content.title;
             genreTdEl.textContent = content.genre;
             languageTdEl.textContent = content.language;
             runtimeTdEl.textContent = content.runtime;
             directorTdEl.textContent = content.director;
             producerTdEl.textContent = content.producer;
-            keyActorTdEl.textContent = content.keyActor;
+            keyActorTdEl.textContent = content.keyActors;
             payeeTdEl.textContent = content.payee;
 
             const rowEl = document.createElement('tr');
-            rowEl.appendChild(posterTdEl.value);
+            rowEl.appendChild(posterTdEl);
             rowEl.appendChild(titleTdEl);
             rowEl.appendChild(genreTdEl);
             rowEl.appendChild(languageTdEl);
