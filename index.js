@@ -1,29 +1,39 @@
 const express = require('express');
 const app = express();
 
-// The service port. In production the frontend code is statically hosted 
-by the service on the same port.
+// The service port. In production the front-end code is statically hosted by the service on the same port.
 const port = process.argv.length > 2 ? process.argv[2] : 3000;
 
 // JSON body parsing using built-in middleware
 app.use(express.json());
 
-// Serve up the frontend static content hosting
+// Serve up the front-end static content hosting
 app.use(express.static('public'));
 
 // Router for service endpoints
-const apiRouter = express.Router();
+var apiRouter = express.Router();
 app.use(`/api`, apiRouter);
 
-// GetScores
-apiRouter.get('/scores', (_req, res) => {
-  res.send(scores);
+// Get contents
+apiRouter.get('/contents', (_req, res) => {
+  res.send(contents);
 });
 
-// SubmitScore
-apiRouter.post('/score', (req, res) => {
-  scores = updateScores(req.body, scores);
-  res.send(scores);
+// submit content
+apiRouter.post('/content', (req, res) => {
+  contents = updateContents(req.body, contents);
+  res.send(contents);
+});
+
+// Get payees
+apiRouter.get('/payees', (_req, res) => {
+  res.send(payees);
+});
+
+// submit payee
+apiRouter.post('/content', (req, res) => {
+  payees = updatePayees(req.body, payees);
+  res.send(payees);
 });
 
 // Return the application's default page if the path is unknown
@@ -34,3 +44,19 @@ app.use((_req, res) => {
 app.listen(port, () => {
   console.log(`Listening on port ${port}`);
 });
+
+let contents = [];
+function updateContents(newContent, contents) {
+
+    contents.push(newScore);
+
+  return contents;
+}
+
+let payees = [];
+function updateContents(newPayee, payees) {
+
+    payees.push(newPayee);
+
+  return payees;
+}

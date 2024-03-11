@@ -13,13 +13,13 @@ async function loadContent() {
     try {
 
         //get the latest content from the service
-        const response = await fetch('/api/content');
+        const response = await fetch('/api/contents');
         contents = await response.json();
 
         //save it
-        localStorage.setItem('content', JSON.stringify(contents));
+        localStorage.setItem('contents', JSON.stringify(contents));
     } catch {
-        const contentsText = localStorage.getItem('content');
+        const contentsText = localStorage.getItem('contents');
         if (contentsText) {
             contents = JSON.parse(contentsText);
         }

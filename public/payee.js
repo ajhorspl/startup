@@ -11,9 +11,9 @@ function getPlayerName() {
     try {
         const resposne = await fetch('/api/payees');
         payees = await resposne.json();
-        localStorage.setItem('payee', JSON.stringify(payees));
+        localStorage.setItem('payees', JSON.stringify(payees));
     } catch {
-        const payeesText = localStorage.getItem('payee');
+        const payeesText = localStorage.getItem('payees');
         if(payeesText) {
             payees = JSON.parse(payeesText);
         }
