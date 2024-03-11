@@ -5,16 +5,32 @@ playerNameEl.textContent = this.getPlayerName();
 function getPlayerName() {
     return localStorage.getItem('userName') ?? 'Mystery player';
   }
-  
-function loadContent() {
+
+async function loadContent() {
+    
     let contents = [];
-    const contentsText = localStorage.getItem('content');
-    console.log(contentsText)
-    if(contentsText) {
-        contents = JSON.parse(contentsText);
-        
+
+    try {
+
+        //get the latest content from the service
+        const response = await fetch('/api/content');
+        contents = await response.json();
+
+        //save it
+        localStorage.setItem('content', JSON.stringify(contents));
+    } catch {
+        const contentsText = localStorage.getItem('content');
+        if (contentsText) {
+            contents = JSON.parse(contentsText);
+        }
     }
-    console.log(contents);
+
+    displayContent(contents);
+}
+  
+function displayContent(contents) {
+    
+    //console.log(contents);
     const tableBodyEl = document.querySelector('#content');
     
     if(contents.length) {
