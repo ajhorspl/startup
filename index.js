@@ -31,7 +31,7 @@ apiRouter.get('/payees', (_req, res) => {
 });
 
 // submit payee
-apiRouter.post('/content', (req, res) => {
+apiRouter.post('/payee', (req, res) => {
   payees = updatePayees(req.body, payees);
   res.send(payees);
 });
@@ -48,13 +48,12 @@ app.listen(port, () => {
 let contents = [];
 function updateContents(newContent, contents) {
 
-    contents.push(newScore);
-
+    contents.push(newContent);
   return contents;
 }
 
 let payees = [];
-function updateContents(newPayee, payees) {
+function updatePayee(newPayee, payees) {
 
     payees.push(newPayee);
 

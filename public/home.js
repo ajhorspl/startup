@@ -10,7 +10,7 @@ function calculate_data() {
   const tableBodyEl = document.querySelector('#info');
 
   let contents = [];
-  const contentsText = localStorage.getItem('content');
+  const contentsText = localStorage.getItem('contents');
   if(contentsText) {
       contents = JSON.parse(contentsText);
   }
@@ -24,7 +24,7 @@ function calculate_data() {
   }
 
   let payees = [];
-  const payeesText = localStorage.getItem('payee');
+  const payeesText = localStorage.getItem('payees');
   let numpayees = 0;
   if(payeesText) {
         payees = JSON.parse(payeesText);
@@ -63,5 +63,5 @@ setInterval(() => {
     address: "123 Not your dads house", city: "anywhere but provo", state: "and california", zip: "92507", country: "god bless the USA" };
 
   payee.push(newPayee);
-  localStorage.setItem('payee', JSON.stringify(payee));
+  localStorage.setItem('payees', JSON.stringify(payee));
 }, 5000);
