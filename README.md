@@ -65,3 +65,13 @@ This application currently works for a single user. There are placeholders for f
 - database: Displays the current films and people who are paid for them (payees) are displayed. This is currently done using local storage
 - websocket data: Randomly adds a payee to the database to simulate another user updating the database simultaneously, until websocket is implemented
 - application logic: The user is able to add to the innteractive database as they find fit.
+
+# Startup Service
+
+For this assignment I added backend endpoints that receive data (content and payee) and returns them onto the database tables.
+
+- Node.js/Express HTTP service: done
+- Static middleware for frontend: done
+- Third party endpoint: added in a quote, but this does not contribute valuable functionality to the interactive database and will subsequently be removed in further iterations.
+- Backend provides service endpoints: endpoints allow for data to be added and returned
+- Frontend calls service endpoints: Frontend uses implemented service enpoints to add information
