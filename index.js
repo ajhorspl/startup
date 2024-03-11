@@ -53,7 +53,7 @@ function updateContents(newContent, contents) {
 }
 
 let payees = [];
-function updatePayee(newPayee, payees) {
+function updatePayees(newPayee, payees) {
 
     payees.push(newPayee);
 
