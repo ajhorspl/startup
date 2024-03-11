@@ -1,16 +1,27 @@
+
 const playerNameEl = document.querySelector('.username');
 playerNameEl.textContent = this.getPlayerName();
 
 function getPlayerName() {
     return localStorage.getItem('userName') ?? 'Mystery player';
   }
-  
-function loadPayee() {
+
+  async function loadPayee() {
     let payees = [];
-    const payeesText = localStorage.getItem('payee');
-    if(payeesText) {
-        payees = JSON.parse(payeesText);
+    try {
+        const resposne = await fetch('/api/payees');
+        payees = await resposne.json();
+        localStorage.setItem('payee', JSON.stringify(payees));
+    } catch {
+        const payeesText = localStorage.getItem('payee');
+        if(payeesText) {
+            payees = JSON.parse(payeesText);
+        }
     }
+    displayPayee(payees);
+  }
+  
+function displayPayee(payees) {
 
     const tableBodyEl = document.querySelector('#payee');
 
