@@ -28,28 +28,28 @@ function getUserByToken(token) {
 }
 
 async function createUser(email, password) {
-    // Hash the password before we insert it into the database
-    const passwordHash = await bcrypt.hash(password, 10);
-  
-    const user = {
-      email: email,
-      password: passwordHash,
-      token: uuid.v4(),
-    };
-    await userCollection.insertOne(user);
-  
-    return user;
-  }
+  // Hash the password before we insert it into the database
+  const passwordHash = await bcrypt.hash(password, 10);
 
-  function addContent(content) {
-    contentCollection.insertOne(content);
-  }
+  const user = {
+    email: email,
+    password: passwordHash,
+    token: uuid.v4(),
+  };
+  await userCollection.insertOne(user);
 
-  function addPayee(payee) {
-    contentCollection.insertOne(payee);
-  }
+  return user;
+}
 
-  function getContents() {
+function addContent(content) {
+  contentCollection.insertOne(content);
+}
+
+function addPayee(payee) {
+  contentCollection.insertOne(payee);
+}
+
+function getContents() {
     return contentCollection.toArray();
   }
 
@@ -57,7 +57,7 @@ async function createUser(email, password) {
     return payeeCollection.toArray();
   }
 
-  module.exports = {
+module.exports = {
     getUser,
     getUserByToken,
     createUser,
