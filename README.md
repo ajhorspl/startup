@@ -75,3 +75,13 @@ For this assignment I added backend endpoints that receive data (content and pay
 - Third party endpoint: added in a quote, but this does not contribute valuable functionality to the interactive database and will subsequently be removed in further iterations.
 - Backend provides service endpoints: endpoints allow for data to be added and returned
 - Frontend calls service endpoints: Frontend uses implemented service enpoints to add information
+
+# Login Service
+
+For this assignment I added the login and database functionality. Users are saved and authenticated in the database. Information uploaded by the usres is saved in the database.
+
+- Supports new user registration: done
+- Supports existing user authentication: done
+- Stores application data in MongoDB: done
+- Stores and retrieves credentials in MongoDB: done
+- Restricts application functionality based upon authentication: done
