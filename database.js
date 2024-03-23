@@ -46,7 +46,7 @@ function addContent(content) {
 }
 
 function addPayee(payee) {
-  contentCollection.insertOne(payee);
+  payeeCollection.insertOne(payee);
 }
 
 function getContents() {
