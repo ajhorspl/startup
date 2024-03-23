@@ -1,8 +1,8 @@
-function login() {
-    const nameEl = document.querySelector("#username");
-    localStorage.setItem("userName", nameEl.value);
-    window.location.href = "home.html";
-  }
+// function login() {
+//     const nameEl = document.querySelector("#username");
+//     localStorage.setItem("userName", nameEl.value);
+//     window.location.href = "home.html";
+//   }
 
   (async () => {
     const userName = localStorage.getItem('userName');
@@ -48,7 +48,7 @@ function login() {
   }
   
   function play() {
-    window.location.href = 'play.html';
+    window.location.href = 'home.html';
   }
   
   function logout() {
