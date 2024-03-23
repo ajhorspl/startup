@@ -50,11 +50,11 @@ function addPayee(payee) {
 }
 
 function getContents() {
-    return contentCollection.toArray();
+    return contentCollection.find().toArray();
   }
 
   function getPayees() {
-    return payeeCollection.toArray();
+    return payeeCollection.find().toArray();
   }
 
 module.exports = {
