@@ -85,9 +85,10 @@ secureApiRouter.use(async (req, res, next) => {
   }
 });
 
-// Get contents
-apiRouter.get('/contents', (_req, res) => {
-  res.send(contents);
+// GetScores
+secureApiRouter.get('/contents', async (req, res) => {
+  const scores = await DB.getHighScores();
+  res.send(scores);
 });
 
 // submit content
@@ -130,17 +131,3 @@ function setAuthCookie(res, authToken) {
   });
 }
 
-// let contents = [];
-// function updateContents(newContent, contents) {
-
-//     contents.push(newContent);
-//   return contents;
-// }
-
-// let payees = [];
-// function updatePayees(newPayee, payees) {
-
-//     payees.push(newPayee);
-
-//   return payees;
-// }
