@@ -108,7 +108,7 @@ secureApiRouter.get('/payees', async (req, res) => {
 // submit payee
 secureApiRouter.post('/payee', async (req, res) => {
   const payee = { ...req.body, ip: req.ip };
-  await DB.addContent(payee);
+  await DB.addPayee(payee);
   const payees = await DB.getPayees();
   res.send(payees);
 });
