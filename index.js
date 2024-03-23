@@ -85,26 +85,31 @@ secureApiRouter.use(async (req, res, next) => {
   }
 });
 
-// GetScores
+// GetContent
 secureApiRouter.get('/contents', async (req, res) => {
-  const scores = await DB.getHighScores();
-  res.send(scores);
+  const contents = await DB.getContents();
+  res.send(contents);
 });
 
-// submit content
-apiRouter.post('/content', (req, res) => {
-  contents = updateContents(req.body, contents);
+// SubmitContent
+secureApiRouter.post('/content', async (req, res) => {
+  const content = { ...req.body, ip: req.ip };
+  await DB.addContent(content);
+  const contents = await DB.getContents();
   res.send(contents);
 });
 
 // Get payees
-apiRouter.get('/payees', (_req, res) => {
+secureApiRouter.get('/payees', async (req, res) => {
+  const payees = await DB.getPayees();
   res.send(payees);
 });
 
 // submit payee
-apiRouter.post('/payee', (req, res) => {
-  payees = updatePayees(req.body, payees);
+secureApiRouter.post('/payee', async (req, res) => {
+  const payee = { ...req.body, ip: req.ip };
+  await DB.addContent(payee);
+  const payees = await DB.getPayees();
   res.send(payees);
 });
 
