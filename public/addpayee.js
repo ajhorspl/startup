@@ -26,10 +26,8 @@ async function savePayee() {
       headers: {'content-type': 'application/json'},
       body: JSON.stringify(newPayee),
     });
-
     const payees = await response.json();
     localStorage.setItem('payees', JSON.stringify(payees));
-    this.broadcastEvent(this.getPlayerName(), 'submitted', {});
   } catch {
     //meh, don't do anything fo now
     console.log('error');

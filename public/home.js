@@ -102,7 +102,7 @@ socket.onclose = (event) => {
 
 socket.onmessage = async (event) => {
   const msg = JSON.parse(await event.data.text());
-  this.displayMsg('player', msg.from, `is now editing the database`);
+  this.displayMsg('system', msg.from, `is now editing the database`);
   };
 
 function displayMsg(cls, from, msg) {
@@ -111,11 +111,11 @@ function displayMsg(cls, from, msg) {
     `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
 }
 
-function broadcastEvent(from, type, value) {
+function broadcastEvent() {
   const event = {
     from: getPlayerName(),
-    type: type,
-    value: value,
   };
   socket.send(JSON.stringify(event));
 }
+
+broadcastEvent();
