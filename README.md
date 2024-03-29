@@ -85,3 +85,10 @@ For this assignment I added the login and database functionality. Users are save
 - Stores application data in MongoDB: done
 - Stores and retrieves credentials in MongoDB: done
 - Restricts application functionality based upon authentication: done
+
+# Websocket Service
+
+- Backend listens for WebSocket connection: done
+- Frontend makes WebSocket connection: done
+- Data sent over WebSocket connection: done
+- WebSocket data displayed in the application interface: Lets user know that they are connected to the server before they attempt to upload data!
