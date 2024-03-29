@@ -28,6 +28,7 @@ async function savePayee() {
     });
     const payees = await response.json();
     localStorage.setItem('payees', JSON.stringify(payees));
+    broadcastEvent();
   } catch {
     //meh, don't do anything fo now
     console.log('error');

@@ -117,5 +117,3 @@ function broadcastEvent() {
   };
   socket.send(JSON.stringify(event));
 }
-
-broadcastEvent();
