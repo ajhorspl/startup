@@ -28,15 +28,15 @@ async function savePayee() {
     });
 
     const payees = await response.json();
-    //console.log("here");
     localStorage.setItem('payees', JSON.stringify(payees));
-    //console.log("now here");
+    this.broadcastEvent(this.getPlayerName(), 'submitted', {});
   } catch {
     //meh, don't do anything fo now
     console.log('error');
   }
 }
 
+//depricated
 function addToDatabase() {
     
     let payee = [];
@@ -61,4 +61,14 @@ function addToDatabase() {
     payee.push(newPayee);
 
     localStorage.setItem('payee', JSON.stringify(payee));
+  }
+
+  //websocket fun
+  function broadcastEvent(from, type, value) {
+    const event = {
+      from: from,
+      type: type,
+      value: value,
+    };
+    send(JSON.stringify(event));
   }
