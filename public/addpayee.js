@@ -20,8 +20,6 @@ async function savePayee() {
   const newPayee = { first: firstNameEl.value, last: lastNameEl.value, email: emailEl.value, phone: phoneEl.value, 
     address: addressEl.value, city: cityEl.value, state: stateEl.value, zip: zipEl.value, country: countryEl.value };
 
-  broadcastEvent();
-  
   try {
     const response = await fetch('/api/payee', {
       method: 'POST',
