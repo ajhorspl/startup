@@ -62,13 +62,3 @@ function addToDatabase() {
 
     localStorage.setItem('payee', JSON.stringify(payee));
   }
-
-  //websocket fun
-  function broadcastEvent(from, type, value) {
-    const event = {
-      from: from,
-      type: type,
-      value: value,
-    };
-    send(JSON.stringify(event));
-  }

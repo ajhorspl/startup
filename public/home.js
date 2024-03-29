@@ -88,27 +88,22 @@ function displayQuote(data) {
 displayQuote();
 
 //websocket stuff
-socket;
-this.configureWebSocket(); 
 
-function configureWebSocket() {
-  const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
-  this.socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
-  this.socket.onopen = (event) => {
-    this.displayMsg('system', 'game', 'connected');
+const protocol = window.location.protocol === 'http:' ? 'ws' : 'wss';
+const socket = new WebSocket(`${protocol}://${window.location.host}/ws`);
+
+socket.onopen = (event) => {
+  this.displayMsg('system', '', 'connected');
+};
+
+socket.onclose = (event) => {
+  this.displayMsg('system', '', 'disconnected');
+};
+
+socket.onmessage = async (event) => {
+  const msg = JSON.parse(await event.data.text());
+  this.displayMsg('player', msg.from, `is now editing the database`);
   };
-  this.socket.onclose = (event) => {
-    this.displayMsg('system', 'game', 'disconnected');
-  };
-  this.socket.onmessage = async (event) => {
-    const msg = JSON.parse(await event.data.text());
-    if (msg.type === GameEndEvent) {
-      this.displayMsg('player', msg.from, `scored ${msg.value.score}`);
-    } else if (msg.type === GameStartEvent) {
-      this.displayMsg('player', msg.from, `started a new game`);
-    }
-  };
-}
 
 function displayMsg(cls, from, msg) {
   const chatText = document.querySelector('#user-messages');
@@ -116,3 +111,11 @@ function displayMsg(cls, from, msg) {
     `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
 }
 
+function broadcastEvent(from, type, value) {
+  const event = {
+    from: getPlayerName(),
+    type: type,
+    value: value,
+  };
+  socket.send(JSON.stringify(event));
+}
