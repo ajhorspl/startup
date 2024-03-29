@@ -111,4 +111,11 @@ function displayMsg(cls, from, msg) {
     `<div class="event"><span class="${cls}-event">${from}</span> ${msg}</div>` + chatText.innerHTML;
 }
 
-  socket.send(`{"from":"${getPlayerName()}"`);
+function broadcastEvent() {
+  const event = {
+    from: getPlayerName(),
+  };
+  socket.send(JSON.stringify(event));
+}
+
+broadcastEvent();
