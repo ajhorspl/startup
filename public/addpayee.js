@@ -20,6 +20,8 @@ async function savePayee() {
   const newPayee = { first: firstNameEl.value, last: lastNameEl.value, email: emailEl.value, phone: phoneEl.value, 
     address: addressEl.value, city: cityEl.value, state: stateEl.value, zip: zipEl.value, country: countryEl.value };
 
+  broadcastEvent();
+  
   try {
     const response = await fetch('/api/payee', {
       method: 'POST',
@@ -28,7 +30,6 @@ async function savePayee() {
     });
     const payees = await response.json();
     localStorage.setItem('payees', JSON.stringify(payees));
-    broadcastEvent();
   } catch {
     //meh, don't do anything fo now
     console.log('error');
