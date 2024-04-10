@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Home</title>
+    <link rel="icon" href="favicon.ico" />
+    <link rel="stylesheet" href="main.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+    <header class="sticky-top">
+      <nav class="navbar navbar-expand-lg bg-light">
+        <div class="container-fluid">
+          <h1>The Film Festival Almanac</h1>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="content.html">Content</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  href="payee.html">Payee</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="addcontent.html">Add Content</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="addpayee.html">Add Payee</a>
+              </li>
+              <li class = "nav-item">
+                <button class="nav-link">Generate CSV</button>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h5 class = "username"></h5>
+          </div>
+          <div>
+            <form method="get" action="index.html">
+              <button type="submit">Logout</button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-fluid text-center">
+        <table class="table table-striped-columns">
+          <thead class = "table-dark">
+            <tr>
+              <th>First</th>
+              <th>Last</th>
+              <th>Email</th>
+              <th>Phone</th>
+              <th>Address</th>
+              <th>City</th>
+              <th>State</th>
+              <th>Zip</th>
+              <th>Country</th>
+              <!-- <th>Number of Films</th> -->
+            </tr>
+          </thead>
+          <tbody id = "payee"></tbody>
+        </table>
+      </main>
+    
+      <footer class="bg-dark text-white-50">
+        <div class="container-fluid">
+          <span class="text-reset">AJ Horspool</span>
+          <a class="text-reset" href="https://github.com/ajhorspl/startup.git">GitHub</a>
+        </div>
+      </footer>
+      <script src = "payee.js" ></script>
+    </body>
+</html>
