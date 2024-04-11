@@ -11,39 +11,39 @@ import { AddPayee } from './addpayee/addpayee'
 function App() {
   return (
     <BrowserRouter>
-    <div class = 'top'>
+    <div className = 'top'>
 
-    <header class="sticky-top">
-      <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
+    <header className="sticky-top">
+      <nav className="navbar navbar-expand-lg bg-light">
+        <div className="container-fluid">
           <h1>The Film Festival Almanac</h1>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
-            <span class="navbar-toggler-icon"></span>
+          <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent">
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <NavLink class="nav-link" to='home'>Home</NavLink>
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <NavLink className="nav-link" to='home'>Home</NavLink>
               </li>
-              <li class="nav-item">
-                <NavLink class="nav-link" to='contents'>Content</NavLink>
+              <li className="nav-item">
+                <NavLink className="nav-link" to='contents'>Content</NavLink>
               </li>
-              <li class="nav-item">
-                <NavLink class="nav-link"  to='payees'>Payee</NavLink>
+              <li className="nav-item">
+                <NavLink className="nav-link"  to='payees'>Payee</NavLink>
               </li>
-              <li class="nav-item">
-                <NavLink class="nav-link" to='addcontent'>Add Content</NavLink>
+              <li className="nav-item">
+                <NavLink className="nav-link" to='addcontent'>Add Content</NavLink>
               </li>
-              <li class="nav-item">
-                <NavLink class="nav-link" to='addpayee'>Add Payee</NavLink>
+              <li className="nav-item">
+                <NavLink className="nav-link" to='addpayee'>Add Payee</NavLink>
               </li>
-              <li class = "nav-item">
-                <button class="nav-link">Generate CSV</button>
+              <li className = "nav-item">
+                <button className="nav-link">Generate CSV</button>
               </li>
             </ul>
           </div>
           <div>
-            <h5 class="username"></h5>
+            <h5 className="username"></h5>
           </div>
           <div>
             <form method="get" action="index.html">
@@ -65,10 +65,10 @@ function App() {
         <Route path='*' element={<NotFound />} />
     </Routes>
 
-    <footer class="bg-dark text-white-50">
-      <div class="container-fluid">
-        <span class="text-reset">AJ Horspool</span>
-        <a class="text-reset" href="https://github.com/ajhorspl/startup.git">GitHub</a>
+    <footer className="bg-dark text-white-50">
+      <div className="container-fluid">
+        <span className="text-reset">AJ Horspool</span>
+        <a className="text-reset" href="https://github.com/ajhorspl/startup.git">GitHub</a>
       </div>
     </footer>
   </div>
