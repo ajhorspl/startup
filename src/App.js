@@ -1,5 +1,11 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { Login } from './login/login'
+import { Home } from './home/home'
+import { Contents } from './contents/contents'
+import { Payees } from './payees/payees'
+import { AddContent } from './addcontent/addcontent'
+import { AddPayee } from './addpayee/addpayee'
 
 function App() {
   return (
@@ -45,7 +51,9 @@ function App() {
         </div>
       </nav>
     </header>
-    <main class>HELLO</main>
+    
+    
+    <Home />
 
     <footer class="bg-dark text-white-50">
       <div class="container-fluid">
