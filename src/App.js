@@ -1,7 +1,9 @@
+import React from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login'
+import { AuthState } from './login/authState';
 import { Home } from './home/home'
 import { Contents } from './contents/contents'
 import { Payees } from './payees/payees'
@@ -9,6 +11,11 @@ import { AddContent } from './addcontent/addcontent'
 import { AddPayee } from './addpayee/addpayee'
 
 function App() {
+
+  const [userName, setUserName] = React.useState(localStorage.getItem('userName') || '');
+  const currentAuthState = userName ? AuthState.Authenticated : AuthState.Unauthenticated;
+  const [authState, setAuthState] = React.useState(currentAuthState);
+
   return (
     <BrowserRouter>
     <div className = 'top'>
@@ -22,24 +29,41 @@ function App() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            <li className='nav-item'>
+                <NavLink className='nav-link' to=''>
+                  Login
+                </NavLink>
+              </li>
+              {authState === AuthState.Authenticated && (
               <li className="nav-item">
                 <NavLink className="nav-link" to='home'>Home</NavLink>
               </li>
+              )}
+              {authState === AuthState.Authenticated && (
               <li className="nav-item">
                 <NavLink className="nav-link" to='contents'>Content</NavLink>
               </li>
+              )}
+              {authState === AuthState.Authenticated && (
               <li className="nav-item">
                 <NavLink className="nav-link"  to='payees'>Payee</NavLink>
               </li>
+              )}
+              {authState === AuthState.Authenticated && (
               <li className="nav-item">
                 <NavLink className="nav-link" to='addcontent'>Add Content</NavLink>
               </li>
+              )}
+              {authState === AuthState.Authenticated && (
               <li className="nav-item">
                 <NavLink className="nav-link" to='addpayee'>Add Payee</NavLink>
               </li>
+              )}
+              {authState === AuthState.Authenticated && (
               <li className = "nav-item">
                 <button className="nav-link">Generate CSV</button>
               </li>
+              )}
             </ul>
           </div>
           <div>
@@ -56,7 +80,20 @@ function App() {
     
     
     <Routes>
-        <Route path = '/' element = {<Login/>} exact/>
+        <Route
+            path='/'
+            element={
+              <Login
+                userName={userName}
+                authState={authState}
+                onAuthChange={(userName, authState) => {
+                  setAuthState(authState);
+                  setUserName(userName);
+                }}
+              />
+            }
+            exact
+          />
         <Route path = '/home' element = {<Home/>} exact/>
         <Route path = '/contents' element = {<Contents/>} exact/>
         <Route path = '/payees' element = {<Payees/>} exact/>
