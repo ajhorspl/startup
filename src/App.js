@@ -1,5 +1,6 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login'
 import { Home } from './home/home'
 import { Contents } from './contents/contents'
@@ -9,6 +10,7 @@ import { AddPayee } from './addpayee/addpayee'
 
 function App() {
   return (
+    <BrowserRouter>
     <div class = 'top'>
 
     <header class="sticky-top">
@@ -21,19 +23,19 @@ function App() {
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
               <li class="nav-item">
-                <a class="nav-link" href="home.html">Home</a>
+                <NavLink class="nav-link" to='home'>Home</NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="content.html">Content</a>
+                <NavLink class="nav-link" to='contents'>Content</NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link"  href="payee.html">Payee</a>
+                <NavLink class="nav-link"  to='payees'>Payee</NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="addcontent.html">Add Content</a>
+                <NavLink class="nav-link" to='addcontent'>Add Content</NavLink>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="addpayee.html">Add Payee</a>
+                <NavLink class="nav-link" to='addpayee'>Add Payee</NavLink>
               </li>
               <li class = "nav-item">
                 <button class="nav-link">Generate CSV</button>
@@ -53,7 +55,15 @@ function App() {
     </header>
     
     
-    <Home />
+    <Routes>
+        <Route path = '/' element = {<Login/>} exact/>
+        <Route path = '/home' element = {<Home/>} exact/>
+        <Route path = '/contents' element = {<Contents/>} exact/>
+        <Route path = '/payees' element = {<Payees/>} exact/>
+        <Route path = '/addcontent' element = {<AddContent/>} exact/>
+        <Route path = '/addpayee' element = {<AddPayee/>} exact/>
+        <Route path='*' element={<NotFound />} />
+    </Routes>
 
     <footer class="bg-dark text-white-50">
       <div class="container-fluid">
@@ -62,7 +72,12 @@ function App() {
       </div>
     </footer>
   </div>
+  </BrowserRouter>
   );
+}
+
+function NotFound() {
+  return <main className='container-fluid bg-secondary text-center'>404: Return to sender. Address unknown.</main>;
 }
 
 export default App;
