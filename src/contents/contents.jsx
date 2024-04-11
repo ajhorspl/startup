@@ -4,41 +4,41 @@ export function Contents() {
     
     const [contents, setContents] = React.useState([]);
 
-  // Demonstrates calling a service asynchronously so that
-  // React can properly update state objects with the results.
-  React.useEffect(() => {
-    fetch('/api/contents')
-      .then((response) => response.json())
-      .then((contents) => {
+     // Demonstrates calling a service asynchronously so that
+    // React can properly update state objects with the results.
+    React.useEffect(() => {
+      fetch('/api/contents')
+        .then((response) => response.json())
+        .then((contents) => {
         setContents(contents);
         localStorage.setItem('contents', JSON.stringify(contents));
-      })
+    })
       .catch(() => {
         const contentsText = localStorage.getItem('contents');
         if (contentsText) {
           setContents(JSON.parse(contentsText));
         }
       });
-  }, []);
+    }, []);
 
   // Demonstrates rendering an array with React
-  const contentRows = [];
-  if (contents.length) {
-    for (const [i, content] of contents.entries()) {
-      contentRows.push(
-        <tr key={i}>
-          <td>{i}</td>
-          <td>{content.poster}</td>
-          <td>{content.title}</td>
-          <td>{content.genre}</td>
-          <td>{content.language}</td>
-          <td>{content.runtime}</td>
-          <td>{content.director}</td>
-          <td>{content.producere}</td>
-          <td>{content.keyActors}</td>
-          <td>{content.payee}</td>
-        </tr>
-      );
+    const contentRows = [];
+    if (contents.length) {
+        for (const [i, content] of contents.entries()) {
+            contentRows.push(
+            <tr key={i}>
+              <td>{i}</td>
+              <td>{content.poster}</td>
+              <td>{content.title}</td>
+              <td>{content.genre}</td>
+              <td>{content.language}</td>
+              <td>{content.runtime}</td>
+              <td>{content.director}</td>
+              <td>{content.producere}</td>
+              <td>{content.keyActors}</td>
+              <td>{content.payee}</td>
+            </tr>
+        );
     }
   } else {
     contentRows.push(
