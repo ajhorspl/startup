@@ -15,6 +15,26 @@ export function Home() {
       .catch();
   }, []);
 
+  const [numContents, setNumContents] = React.useState(0);
+  const [numPayees, setNumPayees] = React.useState(0);
+
+  React.useEffect(() => {
+    let contents = [];
+    let payees = [];
+
+    const contentsText = localStorage.getItem('contents');
+    if (contentsText) {
+      contents = JSON.parse(contentsText);
+    }
+
+    const payeesText = localStorage.getItem('payees');
+    if (payeesText) {
+      payees = JSON.parse(payeesText);
+    }
+
+    setNumContents(contents.length);
+    setNumPayees(payees.length);
+  }, []);
 
     return (
         <main class>
@@ -29,6 +49,10 @@ export function Home() {
             <th>Films</th>
             <th>Payees</th>
           </tr>
+          <tr>
+          <td>{numContents}</td>
+          <td>{numPayees}</td>
+        </tr>
         </thead>
         <tbody id = "info"></tbody>
       </table>

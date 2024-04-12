@@ -92,3 +92,10 @@ For this assignment I added the login and database functionality. Users are save
 - Frontend makes WebSocket connection: done
 - Data sent over WebSocket connection: done
 - WebSocket data displayed in the application interface: Lets user know that they are connected to the server before they attempt to upload data!
+
+# React
+
+- Bundled using Vite: done
+- Functional react components: Login, viewing attributes, uploading attributes are all components
+- Router: routing between all necessay pages done
+- Hooks: changes tracked when entering information into text boxes, updating counts, viewing attributes
