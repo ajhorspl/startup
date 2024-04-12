@@ -27,7 +27,6 @@ export function Payees() {
       for (const [i, payee] of payees.entries()) {
         payeeRows.push(
           <tr key={i}>
-            <td>{i}</td>
             <td>{payee.first}</td>
             <td>{payee.last}</td>
             <td>{payee.email}</td>

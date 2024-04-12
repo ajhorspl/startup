@@ -27,7 +27,6 @@ export function Contents() {
         for (const [i, content] of contents.entries()) {
             contentRows.push(
             <tr key={i}>
-              <td>{i}</td>
               <td>{content.poster}</td>
               <td>{content.title}</td>
               <td>{content.genre}</td>

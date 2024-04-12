@@ -2,77 +2,42 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 
 export function AddPayee() {
-  const [first, setFirst] = useState('');
-  const [last, setLast] = useState('');
-  const [email, setEmail] = useState('');
-  const [phone, setPhone] = useState('');
-  const [address, setAddress] = useState('');
-  const [city, setCity] = useState('');
-  const [state, setState] = useState('');
-  const [zip, setZip] = useState('');
-  const [country, setCountry] = useState('');
-
-  const handleChange = (event) => {
-    const { id, value } = event.target;
-    switch (id) {
-      case 'first':
-        setFirst(value);
-        break;
-      case 'last':
-        setLast(value);
-        break;
-      case 'email':
-        setEmail(value);
-        break;
-      case 'phone':
-        setPhone(value);
-        break;
-      case 'address':
-        setAddress(value);
-        break;
-      case 'city':
-        setCity(value);
-        break;
-      case 'state':
-        setState(value);
-        break;
-      case 'zip':
-        setZip(value);
-        break;
-      case 'country':
-        setCountry(value);
-        break;
-      default:
-        break;
-    }
-  };
-
-  const savePayee = async () => {
-    const newPayee = {
-      first,
-      last,
-      email,
-      phone,
-      address,
-      city,
-      state,
-      zip,
-      country
+    const [firstName, setFirstName] = useState('');
+    const [lastName, setLastName] = useState('');
+    const [email, setEmail] = useState('');
+    const [phone, setPhone] = useState('');
+    const [address, setAddress] = useState('');
+    const [city, setCity] = useState('');
+    const [state, setState] = useState('');
+    const [zip, setZip] = useState('');
+    const [country, setCountry] = useState('');
+  
+    const savePayee = async () => {
+      const newPayee = {
+        first: firstName,
+        last: lastName,
+        email,
+        phone,
+        address,
+        city,
+        state,
+        zip,
+        country
+      };
+  
+      try {
+        const response = await fetch('/api/payee', {
+          method: 'POST',
+          headers: { 'content-type': 'application/json' },
+          body: JSON.stringify(newPayee),
+        });
+  
+        const payees = await response.json();
+        localStorage.setItem('payees', JSON.stringify(payees));
+      } catch (error) {
+        console.error('Error:', error);
+      }
     };
-
-    try {
-      const response = await fetch('/api/payee', {
-        method: 'POST',
-        headers: { 'payee-type': 'application/json' },
-        body: JSON.stringify(newPayee),
-      });
-
-      const payees = await response.json();
-      localStorage.setItem('payees', JSON.stringify(payees));
-    } catch {
-      //meh, don't do anything for now
-    }
-  };
 
   return (
     <main className="container-fluid text-center">
@@ -87,20 +52,20 @@ export function AddPayee() {
           <th>City</th>
           <th>State</th>
           <th>Zip</th>
-          <th>Country</th>
+          <th>Payee</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td><input className='form-control' id="first" type="text" onChange={handleChange} value={first} /></td>
-          <td><input className='form-control' id="last" type="text" onChange={handleChange} value={last} /></td>
-          <td><input className='form-control' id="email" type="text" onChange={handleChange} value={email} /></td>
-          <td><input className='form-control' id="phone" type="text" onChange={handleChange} value={phone} /></td>
-          <td><input className='form-control' id="address" type="text" onChange={handleChange} value={address} /></td>
-          <td> <input className='form-control' id="city" type="text" onChange={handleChange} value={city} /></td>
-          <td><input className='form-control' id="state" type="text" onChange={handleChange} value={state} /></td>
-          <td><input className='form-control' id="zip" type="text" onChange={handleChange} value={zip} /></td>
-          <td><input className='form-control' id="country" type="text" onChange={handleChange} value={country} /></td>
+          <td><input className='form-control' id="first" type="text" onChange={(e) => setFirstName(e.target.value)} value={firstName} /></td>
+          <td><input className='form-control' id="last" type="text" onChange={(e) => setLastName(e.target.value)} value={lastName} /></td>
+          <td><input className='form-control' id="email" type="text" onChange={(e) => setEmail(e.target.value)} value={email} /></td>
+          <td><input className='form-control' id="phone" type="text" onChange={(e) => setPhone(e.target.value)} value={phone} /></td>
+          <td><input className='form-control' id="address" type="text" onChange={(e) => setAddress(e.target.value)} value={address} /></td>
+          <td> <input className='form-control' id="city" type="text" onChange={(e) => setCity(e.target.value)} value={city} /></td>
+          <td><input className='form-control' id="state" type="text" onChange={(e) => setState(e.target.value)} value={state} /></td>
+          <td><input className='form-control' id="zip" type="text" onChange={(e) => setZip(e.target.value)} value={zip} /></td>
+          <td><input className='form-control' id="country" type="text" onChange={(e) => setCountry(e.target.value)} value={country} /></td>
         </tr>
       </tbody>
     </table>
