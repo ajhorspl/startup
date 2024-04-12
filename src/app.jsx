@@ -1,6 +1,7 @@
 import React from 'react';
 import './app.css';
 import 'bootstrap/dist/css/bootstrap.min.css'
+import Button from 'react-bootstrap/Button';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import { Login } from './login/login'
 import { AuthState } from './login/authState';
@@ -29,11 +30,13 @@ function App() {
           </button>
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+            {authState === AuthState.Unauthenticated && (
             <li className='nav-item'>
                 <NavLink className='nav-link' to=''>
-                  Login
+                
                 </NavLink>
               </li>
+            )}
               {authState === AuthState.Authenticated && (
               <li className="nav-item">
                 <NavLink className="nav-link" to='home'>Home</NavLink>
@@ -69,11 +72,11 @@ function App() {
           <div>
             <h5 className="username"></h5>
           </div>
+          {authState === AuthState.Authenticated && (
           <div>
-            <form method="get" action="index.html">
-              <button type="submit">Logout</button>
-            </form>
+             <NavLink className="nav-link" to=''>Logout</NavLink>
           </div>
+          )}
         </div>
       </nav>
     </header>
