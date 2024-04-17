@@ -1,7 +1,7 @@
 import React from 'react';
 import { LoginMessage } from './loginMessage';
 
-export function Home() {
+export function Home(props) {
 
     const [quote, setQuote] = React.useState('Loading...');
     const [quoteAuthor, setQuoteAuthor] = React.useState('unknown');
@@ -39,7 +39,7 @@ export function Home() {
 
     return (
         <main class>
-      <div class = "messages">
+      <div>
         <LoginMessage userName = {props.userName} />
       </div>
       <div>

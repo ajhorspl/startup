@@ -26,7 +26,7 @@ export function Authenticated(props) {
 
   async function sendLogout() {
     try{
-      Notifier.broadcastEvent(userName, LoginEvent.End, "score");
+      Notifier.broadcastEvent(userName, LoginEvent.End, "");
     }
     catch{
       console.log("yeah that didn't work bruh");

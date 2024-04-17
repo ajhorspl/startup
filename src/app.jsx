@@ -97,7 +97,7 @@ function App() {
             }
             exact
           />
-        <Route path = '/home' element = {<Home/>} exact/>
+        <Route path = '/home' element = {<Home userName = {userName}/>} exact/>
         <Route path = '/contents' element = {<Contents/>} exact/>
         <Route path = '/payees' element = {<Payees/>} exact/>
         <Route path = '/addcontent' element = {<AddContent/>} exact/>

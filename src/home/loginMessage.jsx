@@ -24,7 +24,7 @@ export function LoginMessage(props) {
           if (event.type === LoginEvent.End) {
             message = `scored ${event.value.score}`;
           } else if (event.type === LoginEvent.Start) {
-            message = `started a new game`;
+            message = ` has logged in`;
           } else if (event.type === LoginEvent.System) {
             message = event.value.msg;
           }
@@ -41,7 +41,7 @@ export function LoginMessage(props) {
 
   return (
     <div className='players'>
-      Player
+      You are logged in as: 
       <span className='player-name'>{userName}</span>
       <div id='player-messages'>{createMessageArray()}</div>
     </div>
