@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { LoginEvent, Notifier } from '../home/notifier';
 
 import Button from 'react-bootstrap/Button';
 
@@ -19,8 +20,18 @@ export function Authenticated(props) {
         localStorage.removeItem('userName');
         props.onLogout();
       });
+
+    sendLogout();
   }
 
+  async function sendLogout() {
+    try{
+      Notifier.broadcastEvent(userName, LoginEvent.End, "score");
+    }
+    catch{
+      console.log("yeah that didn't work bruh");
+    }
+  }
   return (
     <div>
       <div className='playerName'>{props.userName}</div>

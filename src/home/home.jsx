@@ -1,4 +1,5 @@
 import React from 'react';
+import { LoginMessage } from './loginMessage';
 
 export function Home() {
 
@@ -39,8 +40,7 @@ export function Home() {
     return (
         <main class>
       <div class = "messages">
-        <span class ="username"></span>
-        <div id="user-messages"></div>
+        <LoginMessage userName = {props.userName} />
       </div>
       <div>
       <table>
